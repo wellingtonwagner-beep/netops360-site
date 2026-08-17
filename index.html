@@ -1,4 +1,10 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NetOps360</title>
+<meta name="description" content="NetOps360 — plataforma de operação para provedores de internet: monitoramento de OLT/ONU, gestão remota TR-069, rede neutra e SOC de correlação de eventos, num sistema só.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -166,7 +172,7 @@
     padding: 7px 11px; border-radius: 6px 6px 0 0; border: 1px solid transparent;
   }
   .noc-tab.active { color: var(--text); background: var(--surface); border-color: var(--border); border-bottom-color: var(--surface); }
-  .noc-topline { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid var(--border); background: var(--surface); }
+  .noc-topline { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; padding: 10px 16px; border-bottom: 1px solid var(--border); background: var(--surface); }
   .dash-pill {
     font-family: var(--font-mono); font-size: 0.64rem; font-weight: 700; letter-spacing: .04em;
     color: var(--good); background: color-mix(in srgb, var(--good) 15%, transparent);
@@ -235,9 +241,16 @@
   .pstory:nth-child(even) .pstory-text { order: 2; }
   .pstory-text { padding: clamp(26px, 4vw, 40px); display: flex; flex-direction: column; justify-content: center; gap: 10px; border-right: 1px solid var(--border-soft); }
   .pstory:nth-child(even) .pstory-text { border-right: none; border-left: 1px solid var(--border-soft); }
+  .pstory-text .tag-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .pstory-text .tag { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: .06em; text-transform: uppercase; color: var(--pc); }
+  .pstory-text .status {
+    font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: .05em; text-transform: uppercase;
+    color: var(--pc); border: 1px solid color-mix(in srgb, var(--pc) 45%, var(--border)); border-radius: 999px;
+    padding: 3px 9px; white-space: nowrap; flex: none;
+  }
   .pstory-text h3 { font-size: 1.28rem; font-weight: 700; font-family: var(--font-head); }
-  .pstory-text p { margin: 0; font-size: 0.92rem; color: var(--text-muted); max-width: 42ch; }
+  .pstory-text p { margin: 0; font-size: 0.92rem; color: var(--text-muted); max-width: 46ch; }
+  .pstory-text p.claim { font-weight: 700; color: var(--text); font-size: 1rem; font-family: var(--font-head); }
   .pstory-viz { padding: clamp(24px, 4vw, 36px); display: flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--pc) 5%, transparent); }
   @media (max-width: 860px) {
     .pstory { grid-template-columns: 1fr; }
@@ -276,19 +289,6 @@
   .viz-soc .viz-node .v { font-size: 0.72rem; }
   .viz-soc .viz-node.final { background: var(--pc); border-color: var(--pc); box-shadow: 0 0 0 4px color-mix(in srgb, var(--pc) 22%, transparent); }
   .viz-soc .viz-node.final .v, .viz-soc .viz-node.final .l { color: var(--accent-ink); }
-
-  .module-list { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-  .module-row { background: var(--surface); display: grid; grid-template-columns: 64px 1fr auto; align-items: start; gap: 20px; padding: 24px; border-left: 3px solid var(--pc, transparent); }
-  .module-row .num { font-family: var(--font-mono); color: var(--text-muted); font-size: 0.82rem; padding-top: 3px; }
-  .module-row h3 { font-size: 1.1rem; font-weight: 700; font-family: var(--font-head); }
-  .module-row p.claim { margin: 6px 0 0; font-weight: 600; font-size: 0.98rem; color: var(--pc, var(--accent)); }
-  .module-row p.body { margin: 8px 0 0; color: var(--text-muted); font-size: 0.92rem; max-width: 64ch; }
-  .module-row .tag {
-    font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: .06em;
-    color: var(--pc, var(--accent)); border: 1px solid color-mix(in srgb, var(--pc, var(--accent)) 45%, var(--border)); border-radius: 999px;
-    padding: 5px 10px; white-space: nowrap; text-transform: uppercase; margin-top: 3px;
-  }
-  @media (max-width: 620px) { .module-row { grid-template-columns: 1fr; } .module-row .num { display: none; } .module-row .tag { margin-top: 10px; } }
 
   .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
   .compare-col { background: var(--surface); padding: 26px 24px; }
@@ -364,6 +364,9 @@
   footer a:hover { color: var(--text); }
 </style>
 
+</head>
+<body>
+
 <nav class="topbar">
   <div class="wrap">
     <div class="brandmark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAZF0lEQVR42u3d2XYd1Z3A4dz06ouOZ1uDrcm2PA+AZTMYOukYSCBAJzhhCLMCmKbDYMCY0dikmyFJxyJ5APEE4gmwXwDxBPITWH4BSxfV638EWY7wkTWcXeN38a2V1Q1Yql1V+3eq9j7+0b/8679lAECz/MhBAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAAAQAA4EAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAALAQQAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAAAgAAEAAAgAAAAAQAACAAAAABAJTY8UObs69eOtAS/9sxAQEA1NTGtauzN+4Zyi59fGs2+/e7/kn83+L/F/+MYwUCAKiB4Z512ZfP7M2u/OmOH0z888U/E/9s/DuOHQgAoIJG7+zPLr5+8w0n/Xbi343/hmMJAgCowGP+cw9uzy6dO5LN/v3Ojoj/Vvw3vR4AAQCUzN17u7Mvn96Tzf7tzqTiz4g/yzEHAQAU/Jj/23cOJZ/454s/0+sBEABAzov64pH8lc9vz33iny9+hvhZLBoEAQAkfMz/1Yn9hU/67cTP5vUACACgQ4v64lF7a1FfSSf++eJnjZ/ZokEQAMBy9u4/vacUj/lX8nogfgevB0AAADcQX8t78fWD2ezfjtZK/E6+chgEADDvMf8bdw9ll84drt3EP1/8jvG7ej0AAgAaa2TrxuzLp3fXftJvJ373OAbOBRAA0Iy9+0f7s4uvHcxmvzjKF0dbxyKOiXMDBADUd+/+Z7eZ9NuIY+M7BUAAQD327u/pnnvMb4JfkjhmceycQyAAoFp794/2Z9+evsVkvkJxDONYWjQIAgBK/Zh/7Lc7POZP9Hogjq3XAyAAoER793uzr17cl81+cQc5iGMdx9y5BwIACtq7P5hdOjtiUi5IHPsYA68HQABALo/5Y4Halc9uNQmXRIxFjInXAyAAIMHe/b7v9u6bcMts7jsF+pyzIABgZY/5zz2wLbv00Ug2O3YHFRJjFmPn9QAIAFja3v2ndptIayLG0ncKgACABR/zf3v6ZpNmTcXYej0AAgD+sagvHhW3FvWZJBshxjrG3KJBBICDQCMf83dlX724N5sdu50Gi3MgzgXXBAIAar6oLx4BX/rokMmPfxLnRJwbFg0iAKBue/ef2pVd+eyIyY4FxTkS54rXAwgAqLD4utiLrx4wsbEsce74ymEEAFToMX/rK3o95qeDrwd85TACAEpqZGhD9uWTu7LZ87dDMnGOxbnmmkMAQAn27l985YDJiVzFOec7BRAAUMje/a3ZlU8PZ7Pnb4PCxDkY56JFgwgASLx3f+4xv4mH8olz03cKIACgU4v61szt3f/27ZtMMlRCnKut7xRYY9EgAgCW9Zh/7DfDHvNT6dcDcQ57PYAAgMXs3b+lN/vqhT0mEGolzuk4t13jCACY95j/jWMD2aUzh0wW1Fqc43Guez2AAMBX9D65y2N+Gvl6IM59rwcQADRr7/4dW7KLr+w3EcD521rXQlwT7g0IAGr7mP/cL7dmlz68JZv9663APHFtxDXi9QACgBrt3d/pBg9LENeM7xRAAFDZx/zfnjroZg4rENeQ1wMIACqwqG9t6xHmlU9G3Lyhg+KaimsrrjH3GgQApfvE70YN6XkigACgVOLTiZszpBfXmnsOAgABAAIABABFBsBQNvvXI0Bica255yAAEAAgAEAAUHAA/N8RIDEBgABAAIAAAAGAAAABAAIAAQACAAQAAgAEAAgABAAIAASAg0CnAuAwkJgAQAAgAEAAgABAAIAAAAFA3gFw/1A2+5fDQGJxrbnnIAAQACAAQAAgAEAAgABAAIAAAAFA2gAYzGb/MgIkFteaew4CAAEAAgAEAAIABAAIAAQACAAQAAgAEAAgAOh8APx5BEhMACAAEAAgAEAAIABAAIAAoIAAmPnzISAxAYAAQACAAAABgAAAAQACAAEAAgAEAAIABAAIAAQACAAEgINABwLgPgEAuQTAfQIAAUCpAmAgm/nTLUBica255yAAEAAgAEAAIABAAIAAQACAAAABgAAAAQACAAEAAgABAAIABAACAARAoaY/PphNPLejdVyvNf749mzqvf2OkQAAAUCZAuBmVmj88W3Zsd0bb3i8h7vXZmO/HmqFguPWLAIAAUD5AuDzm1mmyZN7spHB9Us+7hvXrMomnht2DBtEACAAEAA1EZ/6V3r8R2/rdSwFAAgABEBVnPzplo6NgQgQACAAEAAN+eQvAgQACAAEQIVMvbuv9f4+xVhYEyAAQAAgAErq+E3dycYidgg4xgIABAA5BUB/NvP5TSxCfPpPPR7xesGxrqe41txzEAAIgArq5MK/dmJLoWMtAEAAkD4AfiEAFivVu//5ps8dcLzrGAC/EAAIAMoWAJ/dxA1MPDuc25iMP7bNMa8hAYAAQABU0PGbunIbk9aWQMdcAIAAQAAUa/rsgVzHJF41OO4CAAQAAqBgY78azH1cJl/f7dgLABAACIAiLecv+zEuCAAEABUIgIO0MfXO3kLGpbUd0PGvFQGAAEAAVMjJn24ubGymz+43BgIABAACoAjD3WsKG5vxx7YaAwEAAgABkLeJZ7cXOjajt/UYBwEAAoCEAfDpQa4jJuAix6a1HdA41IYAQAAgACpg+qP9pRifydd2GQ8BAAIAAZCX8Ue3Gh8EAAKAOgdAXzbz6QHmGRlcV4rxiZ/DeNRDXGvuOQgABECJTZ3eU6oxmv5on3ERACAAEACpFbn3/7rbAR8dMi4CAAQAAiC1Ivf+t90OaFwEAAgABEA6F07sKN0YzW0HNDYCAAQAAiCZovf+L7wd0PgIABAAdCoAft6XzXxygE8OZNNn9rU+bRsnUogxdM9BAGBiKaFYbFfWcWptBzRGAgAEAJ0NgP18sj87tmtDqcdq+sxe41RhAgABgAAooam3d5d+rFrbAY2VAEAAOAgIgGbdnEdv7TZWzjEQAAiATirb3v+22wGNlQBAADgICIDOuHBiuDLjNfnqTpOpAEAAOAgIgE6IR+vGCwGAAEAANExZ9/633w5oMhUACABYcQBsyWY+2ddY448OVm7Mps/safSYVVVca+45CADKFQD/u6+xjh/cVLkxG39ksNFjVlUCAAGAACiJqVO7Kjlmre2AJlQBgAAAAbA8Yw/1V3LMWtsBTagCAAEAAmB5qrD3v/12wB0mVQGAAAABsFQxgRo3BAACAAHQMFXa+3/d7YAD60yqAgABAAJgqaq097/tdsAP95hYBQACAFYSAHsbZfyRgVqMXfweTRu7KhMACADKFQD3Ni8Aqrj3v/12QBNrZQLgXgGAAKBsAfA/extj+oPdtRm71nbABo1d1QkABAACoEBjD9Xr+9gnXxk2uQoABAAsXTwOb9JNOFbPCziKUJdXTwgAauLYzg2NuQHHp+W6jV9rO6DJtRLiWnPPQQAgAK7jwgvbkqr63v+22wE/2N3xsZg6tTP5eORFACAAoG0A7ClETDLn7t1cu8fyhWwH7MB4fB9JVf6K5IWelMS5FudcUee7AEAA0PgAmP5gV3by33sc/45tB+xa0XhMvrK9UZNTnHtxDgoABAACIMebYEw2dfgWvvJtB1zeeNRtV8RSjlmciwIAAYAAyEFdvoFvsRNMvtsBlz6ZxZMDr08GBAACgGYa7lqTzfxxT3KTf9jeqOM69mC+n6zj/fZSxiP+eef/d/H0h+25XANxrTneCABKJfWNb/r9XY167B+f9OJ3zn074CLH48Lz25z3857WxHilvg4cawQAjQuA0SPNetQ8/tuB1u+d9yPfxU5iPoleZyHlkS4BgACgeabe2pHsphf/7aZ+msz7NcD34bGQ+Gec864DBAC0XHh+azbzx91JNG2739wnybnfPe91D9f+2e2MDKx1zi+wPTDVdRDXmGOMAKBRAdC0x83zj2Wev39rO+ACY9G0hZjLWxArABAANOqddX+Sm970+zsbP4Hkvf5hbkX79cejaWsxlreOYmeSayGuMccXAUDpzG0h86knxSPkiacGSzGWMbH5AqbinobZdokAQADUehHZcOFPQeIdv0+gAgABAIvct74+m/l4d8c1KQBaE2+b4xDHN/fH2AX/DJUOgATXguOPAKByk5cAWOQ6it/0tz0OYw9uKfRnmXpz2HlecADYfYEAoLxfBvTxro5r0sQz/d6Otsdh8r/z/ea91nbAa/78k3d1O8cX+xrnzeEk14JjiwCgcTe+JmwDnD/hFn0cWtsBr/mzLf5bwi4OIYwAoHmPPoeS3PyasPVs4smB0h2HeOoQf268DnB+dy7kliOuLccXAUBpxXvqFDe/vB9/l/VTY0RCrjs77ult/bnHD2x0fi8xmjot7zUgCABY1oSRQp1XQM8tuLvxMYg1Ankv7PToeak7YdKc/3FtOcYIAEorPimmugHGRFTH99BLnTTyDiGL/xa/ZiLVGhhPYRAANHYB1Pfq9i56OZOGR8HVfopjISwCgEZuZetMBPTVZvJfzvviuq+HqObk35f0nM/71Q8CAJa3E+D3g9nMuZ1JxQ23yq8DhrtWZ5Mvb1327x//vnOtHBHXmvwTn+9xTTneCACqsRAw8Q0xxAR6bEf1FgbGO/Xpd4dX9LuPHt7kXCt67caO9SuKuKWwABABQEUWAm7I5aZ47aejmBDL/EQgPrHHxD/1xvaO/M4TTww41wr6xB/nWh5Pua4V15TjjwCgEo+387w5zo+BeCQbn5jKICbqTk3614onCHU8b8oybvPFOZX3pO+VDwKASirqRtkkVXz9UYZXR1XknoIAwEJA/mHsgXr93fApnpTUgQWACAB8muMHiyCtG6k/CwARAFRuhfTMuR0kVpd3wxNP9BvPNur2qgcBQCPWAbh5p1aH7YBzi0aNZTvuJQgAqrcOYHQwmzm7g4Tik3PVz5OTd3UZyzbiGnIvQQBQvXUAd/e4iSc2/e726i/+O7nNWLYR15B7CQKAaq4DcBNPrsrviJ0j9R1bBABNXwfgJp5clbcDjh/fYgwX4B6CAKDaq7vdyJOafHmosl+ra/zqvb4DAUCDxSp1N/P0qrgd0LmxMH/hEwKA6m/xOjtMYqOHN1bu3Jh8edDYLcD3/yMAqDw3+vQmnuir1DkxMrDWuC0grhn3DgQA1d/nfWeXm3pi0+9sq+DiP+PWTlwz7h0IAOrxGuCjYRI7tmNdNRb/rV7VChZj1p7H/wgA6vMa4L8G3dgTG/tlNf7SmFivYLzai2vFPQMBQG3E5OTmbuJofUX0cwPGqwYhhwCAxS366l/r5u7RsddBixDXinsGAoAavgbYTkJl3w449yTIOLXj8T8CgPruBnCTT2rid+XeDji3+M84tWP1PwKAWorV327yaZV5O+Dx/RuM0Q3ENeJegQCgluITqht9WmXdDmjsq/30BgEAPgWWXBlXkc8t/jM2C4lrwz0CAUCtTZ/els2c2U4iky+VbyHZuWPdxmYBcU24NyAAqP93Atzf66afWNm2A069NmRcFhDXhHsDAoBmfDWwm35SoyPl2Q54fP96Y1KxYEMAQLoFYY9vyWbObCOROL5lGevxh3uNSUXGCgEAycVKdTf/dKZPby3J1s8fG48bqMpf4oQAgA6+Fx40AdR8Yjl55yZjsYC4BtwLEAA0TrynNgmkM3Z/j8gruTKt1UAAQM5bAreaCBKZfGmg0LEd6V9jHCrwmgYBAAXuDzcZpFLk6nKL/xYW5757AAKAxopFYtNvb81mPtxGAkU9YjauC4tjE8fIPQABQMOfAnRlMx9uJYGJxzYXtL5jg+O/gDjnXfsIADwFaH1aHDIxJBDHtYgxnTzR7/gvMCY+/SMAwFOA5I4N57sdsLX4z3H36R8BAJ4CFGvs/nwXm8Wf57j79I8AAE8BChaP43Pd2inkfPpHAICnAOWQ13ZAi/98+kcAgKcAJRITcx7jd+HZPsfbp38EACzvKcDUqwMmjApuB2z9Nc+O9XXFOe3TPwIAFvUYeYgOS/0aYG7xn+N8PXk9gQEBQOVdeGZLNvPBEB00/uuepE9upk8NOs7XEeeyaxoBAIt0bHitySOBOK4pxmvisV7HN+djDgKA2opPrCaQzopP6Z1+FXDy6EbHtoCnLiAAqK2YqDxW7rzJF/s6tiCttV7DMc0ttkAA0JxtgT/rMpkkmpziK3uNTTpxfFzDCABYgfjEakJJN0kt9WlAvNO2SPPGT1lcuwgAWKHWXy5jUknm8qmB1rvqhRarRSTE4/6vn9nsmC3CSp+ugACA75y/ryu7+sEgOYhJ/lpTr/Y7LksQ56prFgEAnfyGwFdMRJRbnKO+8Q8BAAm+G+Dq+4NQWvb8IwAg1XcD/KrHREMpxbnpGkUAQOpXASYcSsSjfwQAeBWAR/8gACCVsz/bZOKhFOJcdE0iACBH37ywObv6/gAUJs5B1yICAHI2vGlVdvmtfhMRhYhzL85B1yICAAowemi9yYhCxLnnGkQAQKFbA7tNSOQqzjnXHgIASrA1sLUe4L0BSC7ONVv+EABQEiN9a7LLb/aboEgqzrE411xzCAAokYf3rTNJkVScY641BACU8fsB/mOjiYok4txyjSEAoMQmHunOrr7XDx0T55RrCwEAlVkUaOJi5Sz6QwBApRYFrs4uv9lnAmNF4hyKc8k1hQAAEYDJHwQAVOKbAk1mLINv+kMAQB0i4N1+WDSTPwIA6vJ1wf/ZZWJjUeJccc0gAKB2EdAHbZn8EQBQU98832ui47ri3HCNIACgzt8RIAK4zuRvrz8CAEQAJn8QACACMPmDAAARgMkfBACIAEz+IACgqhHw+97s6jt9NECMtckfBABcEwE92dV3tlBjMcYmfxAAIAJM/iAAABFg8gcBAI02/tAmE2dNxFg6p0EAgAgw+QMCABZ2/ucbTaQVFWPnHAYBAMs2ess6E2rFxJg5d0EAwIod274mu3wyvitgMyUWYxRj5ZwFAQAdM9K3WgSUfPKPMXKuggCANNsER7uzq6c3UyIxJrb5gQCA5BEw/uBGE29JxFiY/EEAQG5O3r7eBFywGAPnIggAKGZx4Ou9JuOcxTG32A8EABRqeNMq6wJyft8fx9y5BwIArAvwvh8QAFDkuoB12eXXe7Krp3vpoDimcWydYyAAoNTfF/DNaJeJu0PiWNrfDwIAKvNK4Py9G0zgKxTH0CN/EABQOQ/vWZNdfq0nu/p2L0sQxyyOnXMIBABUepfA1090mdgXKY6VVf4gAKA2zv5kvQn+BuIYOVdAAEA9Fwg+52nAfHFMLPQDAQANeRrQw9s9PvWDAICmPQ1Y9d3TgGZO/HOf+r3rBwEAngb41A8IAGjeToFNtZ/443e0wh8EAHCd7w2Yeql+rwXid7KvHwQAsIDWtwjesz67eqqnFuJ38W1+IACAxS4S3LIq+/p3myo78cfPHr+DsQQBACzD6M1rs6kTXZWZ+ONnjZ/Z2IEAADrwWuDsT9Zll1+NEOgupfjZ4mf0uB8EAJAgBMYf2FC6yT9+JhM/CAAgl/UBGwuf+ONn8J4fBACQs2PbVhcSAvFnxp9tDEAAAAWHwNxCwbQTf/wZJn4QAEBpdwx0fuK3sh8EAFCVEHire0VM/CAAgEqGwJps6sSm7OpbXUsS/078u44hCACg6osFH99ww4k//hnv+EEAADUMgfEH1v9g4o//m4kfBABQc8Obftya9EP8b8cEBAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAQAA4EAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAIAAcBAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAAlu7/AfY8MiuLQ21wAAAAAElFTkSuQmCC" alt="" /> NetOps<span class="dot360">360</span></div>
@@ -381,7 +384,7 @@
   <div class="wrap hero-inner">
     <div>
       <p class="eyebrow">Plataforma de operação para provedores de internet</p>
-      <h1>Menos apagar incêndio.<br><span class="accent">Mais operação inteligente.</span></h1>
+      <h1>Da OLT ao assinante.<br><span class="accent">Tudo numa tela só.</span></h1>
       <p class="sub">Sua rede sob controle. <span class="accent">Sua operação sob lucro.</span></p>
       <p class="lede">NetOps360 junta monitoramento de OLT, gestão remota via TR-069, mapeamento de rede neutra e correlação de eventos num SOC único — nascido dentro de um provedor real, não de um laboratório.</p>
       <div class="hero-ctas">
@@ -406,7 +409,7 @@
           <span class="noc-tab">SOC</span>
         </div>
         <div class="noc-topline">
-          <p class="eyebrow" style="margin:0;">netops360 · visão geral</p>
+          <p class="eyebrow" style="margin:0;">netops360 · visão geral <span style="color:var(--text-muted-2); text-transform:none; letter-spacing:0;">(dados ilustrativos)</span></p>
           <span class="dash-pill"><span class="status-dot good"></span>4 pilares ativos</span>
         </div>
         <div class="noc-metrics">
@@ -438,7 +441,7 @@
 <section id="dores">
   <div class="wrap">
     <div class="section-head">
-      <h2>Cada minuto sem visibilidade é receita saindo pela porta</h2>
+      <h2>Sem visibilidade da rede, o problema chega ao cliente antes de chegar ao NOC</h2>
       <p class="lede">Nenhum desses custos aparece separado na planilha — mas todos vêm do mesmo lugar: falta de uma operação unificada.</p>
     </div>
     <div class="problem-grid">
@@ -475,9 +478,10 @@
     <div class="pstory-list">
       <div class="pstory" style="--pc:var(--p-olt)">
         <div class="pstory-text">
-          <span class="tag">01 · módulo comercial principal</span>
+          <div class="tag-row"><span class="tag">01 · módulo comercial principal</span><span class="status">no ar</span></div>
           <h3>OLT &amp; ONU</h3>
-          <p>Saúde de porta, potência óptica, alarmes, eventos e performance em tempo real — com dashboards, indicadores e integração ao ERP.</p>
+          <p class="claim">Veja o que uma ferramenta de nicho vê — e o que ela não vê.</p>
+          <p>Saúde de porta, potência óptica, alarmes e performance em tempo real, mais reputação de IP/ASN (DNSBL/RBL) e dashboards integrados ao seu ERP — tudo que uma ferramenta especializada em OLT cobre, e o que ela não tem.</p>
         </div>
         <div class="pstory-viz">
           <div class="viz-olt">
@@ -496,9 +500,10 @@
 
       <div class="pstory" style="--pc:var(--p-tr069)">
         <div class="pstory-text">
-          <span class="tag">02 · vendido separadamente</span>
+          <div class="tag-row"><span class="tag">02 · vendido separadamente</span><span class="status">no ar</span></div>
           <h3>TR-069 — gestão remota</h3>
-          <p>Provisionamento, diagnóstico e configuração do equipamento do assinante à distância — menos visita técnica, mais produtividade.</p>
+          <p class="claim">Resolve o chamado antes de mandar o técnico pra rua.</p>
+          <p>Provisionamento, diagnóstico remoto e alteração de configuração do equipamento do assinante à distância. Corta o tempo entre "cliente reclamou" e "problema resolvido" — e a visita técnica desnecessária junto.</p>
         </div>
         <div class="pstory-viz">
           <div class="viz-olt">
@@ -515,9 +520,10 @@
 
       <div class="pstory" style="--pc:var(--p-rn)">
         <div class="pstory-text">
-          <span class="tag">03 · infraestrutura como ativo</span>
+          <div class="tag-row"><span class="tag">03 · infraestrutura como ativo</span><span class="status">no ar</span></div>
           <h3>Rede Neutra</h3>
-          <p>Mapa completo da rede FTTH e um módulo pra vender capacidade a outros provedores na sua própria infraestrutura — com isolamento total entre parceiros.</p>
+          <p class="claim">Mapeie, documente e depois venda capacidade — com isolamento total.</p>
+          <p>Mapa completo da infraestrutura FTTH (CTOs, CEOs, fibras, rotas) vira documentação viva. A partir dela, hospede outros provedores na sua própria rede: cada parceiro só enxerga os próprios assinantes, e toda porta ocupada já entra na conta — faturamento por porta, sem depender de planilha pra saber quem está usando o quê.</p>
         </div>
         <div class="pstory-viz">
           <div class="viz-rn">
@@ -538,9 +544,10 @@
 
       <div class="pstory" style="--pc:var(--p-soc)">
         <div class="pstory-text">
-          <span class="tag">04 · diferencial competitivo</span>
+          <div class="tag-row"><span class="tag">04 · diferencial competitivo</span><span class="status">no ar</span></div>
           <h3>SOC — correlação de eventos</h3>
-          <p>ERP, CGNAT, BGP, BRAS, flow, sessões e IPs cruzados num só lugar — o que levava uma tarde de investigação, leva minutos.</p>
+          <p class="claim">O que levava uma tarde cruzando log, agora leva minutos.</p>
+          <p>ERP, CGNAT, concentradores (BRAS), roteadores BGP, flow, sessões PPPoE, IPs públicos, clientes e equipamentos — tudo correlacionado num só lugar. De pedido de autoridade (Marco Civil) a diagnóstico de rota.</p>
         </div>
         <div class="pstory-viz">
           <div class="viz-soc">
@@ -554,53 +561,6 @@
             <div class="viz-node final"><div class="v">evento</div></div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="modulos">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Os quatro pilares, em detalhe</h2>
-      <p class="lede">Cada módulo já roda com cliente real, isolado por provedor.</p>
-    </div>
-    <div class="module-list">
-      <div class="module-row" style="--pc:var(--p-olt)">
-        <span class="num mono">01</span>
-        <div>
-          <h3>Monitoramento de OLT &amp; ONU</h3>
-          <p class="claim">Veja o que uma ferramenta de nicho vê — e o que ela não vê.</p>
-          <p class="body">Status de OLT e ONU, potência óptica, alarmes e performance em tempo real, mais reputação de IP/ASN (DNSBL/RBL) e dashboards integrados ao seu ERP. É o módulo comercial principal — cobre tudo que uma ferramenta especializada em OLT faz, e soma reputação, indicadores e integração que ela não tem.</p>
-        </div>
-        <span class="tag">no ar</span>
-      </div>
-      <div class="module-row" style="--pc:var(--p-tr069)">
-        <span class="num mono">02</span>
-        <div>
-          <h3>TR-069 — gestão remota</h3>
-          <p class="claim">Resolve o chamado antes de mandar o técnico pra rua.</p>
-          <p class="body">Provisionamento, diagnóstico remoto e alteração de configuração do equipamento do assinante à distância. Reduz visita técnica desnecessária e corta o tempo entre "cliente reclamou" e "problema resolvido". Vendido separadamente.</p>
-        </div>
-        <span class="tag">no ar</span>
-      </div>
-      <div class="module-row" style="--pc:var(--p-rn)">
-        <span class="num mono">03</span>
-        <div>
-          <h3>Rede Neutra — sua fibra parada vira receita recorrente</h3>
-          <p class="claim">Mapeie, documente e depois venda capacidade — com isolamento total.</p>
-          <p class="body">Mapa completo da infraestrutura FTTH (CTOs, CEOs, fibras, postes, rotas) transformado em documentação viva. A partir dela, vire host de outros provedores na sua própria rede: cada parceiro opera só os assinantes dele, nunca vê os seus nem os de outro parceiro, e toda porta ocupada já entra na conta — faturamento por porta, com reconciliação automática, sem depender de planilha pra saber quem está usando o quê.</p>
-        </div>
-        <span class="tag">no ar</span>
-      </div>
-      <div class="module-row" style="--pc:var(--p-soc)">
-        <span class="num mono">04</span>
-        <div>
-          <h3>SOC — correlação de eventos</h3>
-          <p class="claim">O que levava uma tarde cruzando log, agora leva minutos.</p>
-          <p class="body">Integração de ERP, CGNAT, concentradores (BRAS), roteadores BGP, flow, logs, sessões PPPoE, IPs públicos, clientes e equipamentos — tudo correlacionado num só lugar. É o diferencial competitivo: reduz drasticamente o tempo de investigação de incidente, de pedido de autoridade (Marco Civil) a diagnóstico de rota.</p>
-        </div>
-        <span class="tag">no ar</span>
       </div>
     </div>
   </div>
@@ -788,3 +748,6 @@
   if (reduce) { step(); } else { requestAnimationFrame(step); }
 })();
 </script>
+
+</body>
+</html>
