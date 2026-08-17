@@ -134,7 +134,7 @@
   .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.5; }
   .hero-inner {
     position: relative; z-index: 2;
-    padding: clamp(56px, 9vw, 100px) 0 clamp(48px, 7vw, 80px);
+    padding-top: clamp(56px, 9vw, 100px); padding-bottom: clamp(48px, 7vw, 80px);
     display: grid; gap: 44px; grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr); align-items: center;
   }
   @media (max-width: 980px) { .hero-inner { grid-template-columns: 1fr; } }
@@ -296,10 +296,6 @@
   .proof-stat .l { font-size: 0.78rem; color: var(--text-muted); }
   @media (max-width: 700px) { .proof-card { grid-template-columns: 1fr; } .proof-stat { text-align: left; } }
 
-  .statement-band { text-align: center; padding: clamp(48px, 8vw, 76px) 0; }
-  .statement-band p { font-family: var(--font-head); font-size: clamp(1.5rem, 3.6vw, 2.4rem); font-weight: 700; max-width: 26ch; margin: 0 auto; line-height: 1.28; }
-  .statement-band p .accent { color: var(--accent); }
-
   .cta-band { text-align: center; }
   .cta-band h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); max-width: 22ch; margin: 0 auto; }
   .cta-band p { color: var(--text-muted); max-width: 48ch; margin: 14px auto 0; }
@@ -447,12 +443,6 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="posicionamento" class="trace-line">
-  <div class="wrap statement-band">
-    <p>Você não usa a NetOps360 só para <span class="accent">monitorar</span> sua rede.<br>Você usa para <span class="accent">assumir o controle</span> da operação.</p>
   </div>
 </section>
 
