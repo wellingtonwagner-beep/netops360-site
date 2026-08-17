@@ -155,54 +155,16 @@
   .btn-primary:hover { background: var(--accent-2); border-color: var(--accent-2); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent), 0 8px 24px -6px color-mix(in srgb, var(--accent) 65%, transparent); }
   .btn-ghost:hover { border-color: var(--text-muted); }
 
-  /* ---- NOC console (hero mockup) ---- */
-  .noc {
-    position: relative; z-index: 2;
-    background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px;
-    box-shadow: var(--shadow); overflow: hidden;
-    display: grid; grid-template-columns: 44px 1fr;
-  }
-  .noc-rail { background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 16px 0; }
-  .noc-rail .ricon { width: 20px; height: 20px; color: var(--text-muted-2); }
-  .noc-rail .ricon.active { color: var(--accent); }
-  .noc-main { min-width: 0; }
-  .noc-tabs { display: flex; gap: 4px; padding: 10px 12px 0; overflow-x: auto; }
-  .noc-tab {
-    font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted); white-space: nowrap;
-    padding: 7px 11px; border-radius: 6px 6px 0 0; border: 1px solid transparent;
-  }
-  .noc-tab.active { color: var(--text); background: var(--surface); border-color: var(--border); border-bottom-color: var(--surface); }
-  .noc-topline { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; padding: 10px 16px; border-bottom: 1px solid var(--border); background: var(--surface); }
-  .dash-pill {
-    font-family: var(--font-mono); font-size: 0.64rem; font-weight: 700; letter-spacing: .04em;
-    color: var(--good); background: color-mix(in srgb, var(--good) 15%, transparent);
-    border: 1px solid color-mix(in srgb, var(--good) 35%, transparent); border-radius: 999px; padding: 3px 9px;
-    display: inline-flex; align-items: center; gap: 5px;
-  }
-  .status-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; flex: none; }
-  .status-dot.good { background: var(--good); box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 22%, transparent); }
-  .status-dot.warn { background: var(--warn); box-shadow: 0 0 0 3px color-mix(in srgb, var(--warn) 22%, transparent); }
-  .status-dot.crit { background: var(--crit); box-shadow: 0 0 0 3px color-mix(in srgb, var(--crit) 22%, transparent); }
 
-  .noc-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
-  .noc-metric { background: var(--surface-2); padding: 12px 14px; }
-  .noc-metric .v { display: block; font-family: var(--font-mono); font-size: 1.15rem; font-weight: 700; }
-  .noc-metric .l { display: block; font-size: 0.68rem; color: var(--text-muted); margin-top: 3px; }
-  .noc-metric.warn .v { color: var(--warn); }
-
-  .noc-spark { padding: 12px 16px; border-top: 1px solid var(--border); }
-  .noc-spark .sk-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-  .noc-spark .sk-head span:first-child { font-size: 0.68rem; color: var(--text-muted); }
-  .noc-spark .sk-head span:last-child { font-family: var(--font-mono); font-size: 0.74rem; font-weight: 700; }
-  .noc-bars { display: flex; align-items: flex-end; gap: 3px; height: 34px; }
-  .noc-bars span { flex: 1; background: color-mix(in srgb, var(--accent) 55%, var(--border)); border-radius: 2px 2px 0 0; }
-  .noc-bars span.peak { background: var(--accent); }
-
-  .noc-events { border-top: 1px solid var(--border); }
-  .noc-event { display: flex; align-items: center; gap: 9px; padding: 8px 16px; font-size: 0.76rem; border-bottom: 1px solid var(--border-soft); }
-  .noc-event .t { font-family: var(--font-mono); color: var(--text-muted-2); font-size: 0.68rem; flex: none; }
-  .dash-foot { padding: 9px 16px; font-family: var(--font-mono); font-size: 0.66rem; color: var(--text-muted); background: var(--surface); border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
-  @media (max-width: 560px) { .noc { grid-template-columns: 1fr; } .noc-rail { display: none; } .noc-metrics { grid-template-columns: repeat(2, 1fr); } }
+  /* ---- real product screenshot frame ---- */
+  .shot { border-radius: 10px; overflow: hidden; background: var(--surface); border: 1px solid var(--border); }
+  .shot-bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: var(--surface); border-bottom: 1px solid var(--border); }
+  .shot-bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--border); display: block; }
+  .shot-bar .shot-label { margin-left: 6px; font-family: var(--font-mono); font-size: 0.64rem; color: var(--text-muted-2); }
+  .shot img { display: block; width: 100%; height: auto; }
+  .hero-shot { box-shadow: var(--shadow); align-self: center; }
+  .hero-shot .shot-bar { background: var(--surface-2); }
+  .pstory-viz .shot { width: 100%; box-shadow: 0 8px 24px -10px rgba(0,0,0,.45); }
 
   section { padding: clamp(60px, 9vw, 108px) 0; border-bottom: 1px solid var(--border-soft); position: relative; }
   section.tinted { background: var(--surface); }
@@ -257,38 +219,6 @@
     .pstory:nth-child(even) .pstory-text { order: 0; border-left: none; border-right: none; border-bottom: 1px solid var(--border-soft); }
     .pstory-text { border-right: none; border-bottom: 1px solid var(--border-soft); }
   }
-
-  /* diagram: OLT chain */
-  .viz-olt { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; width: 100%; }
-  .viz-node { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; text-align: center; min-width: 64px; }
-  .viz-node .l { font-family: var(--font-mono); font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; }
-  .viz-node .v { font-size: 0.82rem; font-weight: 700; margin-top: 3px; font-family: var(--font-head); }
-  .viz-arrow { color: var(--text-muted-2); font-family: var(--font-mono); font-size: 0.9rem; }
-  .viz-onu-group { display: flex; gap: 6px; }
-  .viz-onu { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 9px; text-align: center; }
-  .viz-onu .pw { font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; margin-top: 3px; }
-  .viz-onu.good .pw { color: var(--good); }
-  .viz-onu.warn .pw { color: var(--warn); }
-
-  /* diagram: rede neutra port grid */
-  .viz-rn { width: 100%; }
-  .viz-rn-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; max-width: 260px; margin: 0 auto; }
-  .viz-rn-grid span { aspect-ratio: 1; border-radius: 3px; background: var(--border); }
-  .viz-rn-grid span.mine { background: var(--pc); }
-  .viz-rn-grid span.partner { background: color-mix(in srgb, var(--pc) 40%, var(--text-muted-2)); }
-  .viz-rn-legend { display: flex; gap: 14px; justify-content: center; margin-top: 14px; flex-wrap: wrap; }
-  .viz-rn-legend span { font-size: 0.68rem; color: var(--text-muted); display: inline-flex; align-items: center; gap: 6px; }
-  .viz-rn-legend i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; background: var(--border); }
-  .viz-rn-legend i.mine { background: var(--pc); }
-  .viz-rn-legend i.partner { background: color-mix(in srgb, var(--pc) 40%, var(--text-muted-2)); }
-  .viz-rn-tag { text-align: center; margin-top: 14px; font-family: var(--font-mono); font-size: 0.68rem; color: var(--pc); }
-
-  /* diagram: SOC correlation chain */
-  .viz-soc { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; width: 100%; }
-  .viz-soc .viz-node { min-width: 56px; padding: 8px 10px; }
-  .viz-soc .viz-node .v { font-size: 0.72rem; }
-  .viz-soc .viz-node.final { background: var(--pc); border-color: var(--pc); box-shadow: 0 0 0 4px color-mix(in srgb, var(--pc) 22%, transparent); }
-  .viz-soc .viz-node.final .v, .viz-soc .viz-node.final .l { color: var(--accent-ink); }
 
   .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
   .compare-col { background: var(--surface); padding: 26px 24px; }
@@ -393,47 +323,9 @@
       </div>
     </div>
 
-    <div class="noc" role="img" aria-label="Painel ilustrativo do NetOps360 mostrando OLTs online, ONUs ativas, alarmes, potência óptica e eventos correlacionados em tempo real">
-      <div class="noc-rail">
-        <svg class="ricon active" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18h2M9 18h2M14 18h2M19 18h2M6 18v-4M11 18v-8M16 18v-11" stroke-linecap="round"/></svg>
-        <svg class="ricon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="9" width="16" height="7" rx="1.5"/><circle cx="8" cy="12.5" r="1"/><circle cx="12" cy="12.5" r="1"/><path d="M12 9V6M8 6h8" stroke-linecap="round"/></svg>
-        <svg class="ricon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="6" r="2.2"/><circle cx="18" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M8 6h8M7.4 8L11 16M16.6 8L13 16" stroke-linecap="round"/></svg>
-        <svg class="ricon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="noc-main">
-        <div class="noc-tabs">
-          <span class="noc-tab active">Visão geral</span>
-          <span class="noc-tab">OLT</span>
-          <span class="noc-tab">TR-069</span>
-          <span class="noc-tab">Rede Neutra</span>
-          <span class="noc-tab">SOC</span>
-        </div>
-        <div class="noc-topline">
-          <p class="eyebrow" style="margin:0;">netops360 · visão geral <span style="color:var(--text-muted-2); text-transform:none; letter-spacing:0;">(dados ilustrativos)</span></p>
-          <span class="dash-pill"><span class="status-dot good"></span>4 pilares ativos</span>
-        </div>
-        <div class="noc-metrics">
-          <div class="noc-metric"><span class="v mono">64</span><span class="l">OLTs online</span></div>
-          <div class="noc-metric"><span class="v mono">18.4k</span><span class="l">ONUs ativas</span></div>
-          <div class="noc-metric warn"><span class="v mono">3</span><span class="l">alarmes abertos</span></div>
-          <div class="noc-metric"><span class="v mono">99.94%</span><span class="l">disponibilidade</span></div>
-        </div>
-        <div class="noc-spark">
-          <div class="sk-head"><span>potência óptica média · 24h</span><span>-21.4 dBm</span></div>
-          <div class="noc-bars">
-            <span style="height:52%"></span><span style="height:61%"></span><span style="height:48%"></span><span style="height:70%"></span>
-            <span style="height:58%" class="peak"></span><span style="height:66%"></span><span style="height:44%"></span><span style="height:73%" class="peak"></span>
-            <span style="height:55%"></span><span style="height:62%"></span><span style="height:49%"></span><span style="height:68%"></span>
-            <span style="height:60%"></span><span style="height:75%" class="peak"></span><span style="height:51%"></span><span style="height:64%"></span>
-          </div>
-        </div>
-        <div class="noc-events">
-          <div class="noc-event"><span class="t mono">14:22:08</span><span class="status-dot good"></span>ONU recuperada — CTO-0231</div>
-          <div class="noc-event"><span class="t mono">14:19:51</span><span class="status-dot warn"></span>Sinal degradado — OLT-07 / PON 3</div>
-          <div class="noc-event"><span class="t mono">14:11:37</span><span class="status-dot crit"></span>Sessão PPPoE em loop — BRAS-02</div>
-        </div>
-        <div class="dash-foot"><span>multi-tenant · isolamento por provedor</span><span>integrado ao ERP</span></div>
-      </div>
+    <div class="shot hero-shot">
+      <div class="shot-bar"><i></i><i></i><i></i><span class="shot-label">app.netops360 · dashboard · tenant de demonstração</span></div>
+      <img src="images/dashboard-dark.jpg" alt="Dashboard real do NetOps360 mostrando clientes online, ONUs, OLTs em risco, PONs críticas, saúde da rede, IPs monitorados, incidentes recentes e mapa de calor do sinal óptico" loading="eager" width="1150" height="646">
     </div>
   </div>
 </header>
@@ -484,16 +376,9 @@
           <p>Saúde de porta, potência óptica, alarmes e performance em tempo real, mais reputação de IP/ASN (DNSBL/RBL) e dashboards integrados ao seu ERP — tudo que uma ferramenta especializada em OLT cobre, e o que ela não tem.</p>
         </div>
         <div class="pstory-viz">
-          <div class="viz-olt">
-            <div class="viz-node"><div class="l">OLT</div><div class="v">OLT-07</div></div>
-            <span class="viz-arrow">→</span>
-            <div class="viz-node"><div class="l">PON</div><div class="v">porta 3</div></div>
-            <span class="viz-arrow">→</span>
-            <div class="viz-onu-group">
-              <div class="viz-onu good"><div class="l mono">ONU</div><div class="pw">-19.8</div></div>
-              <div class="viz-onu good"><div class="l mono">ONU</div><div class="pw">-21.1</div></div>
-              <div class="viz-onu warn"><div class="l mono">ONU</div><div class="pw">-24.6</div></div>
-            </div>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-label">ONUs / ONTs · tenant de demonstração</span></div>
+            <img src="images/onus-dark.jpg" alt="Tela real do NetOps360 listando ONUs/ONTs por OLT, com status online/offline/alarme e RX em dBm" loading="lazy" width="1150" height="646">
           </div>
         </div>
       </div>
@@ -506,14 +391,9 @@
           <p>Provisionamento, diagnóstico remoto e alteração de configuração do equipamento do assinante à distância. Corta o tempo entre "cliente reclamou" e "problema resolvido" — e a visita técnica desnecessária junto.</p>
         </div>
         <div class="pstory-viz">
-          <div class="viz-olt">
-            <div class="viz-node"><div class="l">cliente</div><div class="v">reclamação</div></div>
-            <span class="viz-arrow">→</span>
-            <div class="viz-node"><div class="l">cpe</div><div class="v">ONT-4471</div></div>
-            <span class="viz-arrow">→</span>
-            <div class="viz-node"><div class="l">diagnóstico</div><div class="v">remoto</div></div>
-            <span class="viz-arrow">→</span>
-            <div class="viz-node" style="border-color:var(--p-tr069); background:color-mix(in srgb, var(--p-tr069) 14%, var(--surface));"><div class="l">ação</div><div class="v">resolvido</div></div>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-label">CPE / Firmware · tenant de demonstração</span></div>
+            <img src="images/cpe-dark.jpg" alt="Tela real do NetOps360 com o inventário de CPEs, versões de firmware e régua de atualização remota" loading="lazy" width="1150" height="646">
           </div>
         </div>
       </div>
@@ -526,18 +406,9 @@
           <p>Mapa completo da infraestrutura FTTH (CTOs, CEOs, fibras, rotas) vira documentação viva. A partir dela, hospede outros provedores na sua própria rede: cada parceiro só enxerga os próprios assinantes, e toda porta ocupada já entra na conta — faturamento por porta, sem depender de planilha pra saber quem está usando o quê.</p>
         </div>
         <div class="pstory-viz">
-          <div class="viz-rn">
-            <div class="viz-rn-grid">
-              <span></span><span class="mine"></span><span></span><span class="mine"></span><span class="partner"></span><span></span><span class="mine"></span><span></span><span class="mine"></span><span></span>
-              <span class="mine"></span><span></span><span class="partner"></span><span></span><span class="mine"></span><span></span><span class="mine"></span><span class="partner"></span><span></span><span class="mine"></span>
-              <span></span><span class="mine"></span><span></span><span class="mine"></span><span></span><span class="partner"></span><span></span><span class="mine"></span><span></span><span></span>
-            </div>
-            <div class="viz-rn-legend">
-              <span><i></i>livre</span>
-              <span><i class="mine"></i>sua rede</span>
-              <span><i class="partner"></i>parceiro</span>
-            </div>
-            <div class="viz-rn-tag">custo de infraestrutura → receita recorrente por porta</div>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-label">Mapa FTTH · tenant de demonstração</span></div>
+            <img src="images/mapa-campo-dark.jpg" alt="Tela real do NetOps360 com o mapa FTTH: caixas de atendimento e emenda sobre o mapa da cidade, status de clientes por região" loading="lazy" width="1150" height="646">
           </div>
         </div>
       </div>
@@ -550,15 +421,9 @@
           <p>ERP, CGNAT, concentradores (BRAS), roteadores BGP, flow, sessões PPPoE, IPs públicos, clientes e equipamentos — tudo correlacionado num só lugar. De pedido de autoridade (Marco Civil) a diagnóstico de rota.</p>
         </div>
         <div class="pstory-viz">
-          <div class="viz-soc">
-            <div class="viz-node"><div class="l">erp</div></div><span class="viz-arrow">→</span>
-            <div class="viz-node"><div class="l">cliente</div></div><span class="viz-arrow">→</span>
-            <div class="viz-node"><div class="l">pppoe</div></div><span class="viz-arrow">→</span>
-            <div class="viz-node"><div class="l">bras</div></div><span class="viz-arrow">→</span>
-            <div class="viz-node"><div class="l">cgnat</div></div><span class="viz-arrow">→</span>
-            <div class="viz-node"><div class="l">ip público</div></div><span class="viz-arrow">→</span>
-            <div class="viz-node"><div class="l">flow / bgp</div></div><span class="viz-arrow">→</span>
-            <div class="viz-node final"><div class="v">evento</div></div>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-label">Incidentes Ativos · tenant de demonstração</span></div>
+            <img src="images/soc-dark.jpg" alt="Tela real do NetOps360 com o SOC: incidentes ativos, mapa geopolítico de ameaças e ranking de top ofensores por risco" loading="lazy" width="1150" height="646">
           </div>
         </div>
       </div>
