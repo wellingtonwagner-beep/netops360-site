@@ -185,6 +185,16 @@
   .section-head .lede { color: var(--text-muted); max-width: 52ch; margin-top: 4px; }
   @media (max-width: 780px) { .section-head { grid-template-columns: 1fr; gap: 12px; } }
 
+  .statement-band { text-align: center; padding-top: 0; }
+  .statement-band .wrap { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 56px 24px; }
+  .statement-band p.eyebrow { justify-content: center; }
+  .statement-band p.claim {
+    max-width: 26ch; margin: 22px auto 0; font-family: var(--font-head); font-weight: 700;
+    font-size: clamp(1.4rem, 3.4vw, 2.15rem); line-height: 1.32; letter-spacing: -0.015em; color: var(--text-muted);
+  }
+  .statement-band p.claim strong { display: block; color: var(--text); font-weight: 800; margin-top: 4px; }
+  .statement-band p.claim strong .accent { color: var(--accent); }
+
   .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
   .problem-cell { background: var(--surface); padding: 24px 22px; }
   section.tinted .problem-cell { background: var(--bg); }
@@ -284,6 +294,10 @@
   .proof-stat .n { font-family: var(--font-mono); font-size: 2.1rem; font-weight: 700; color: var(--accent); }
   .proof-stat .l { font-size: 0.78rem; color: var(--text-muted); }
   @media (max-width: 700px) { .proof-card { grid-template-columns: 1fr; } .proof-stat { text-align: left; } }
+
+  .statement-band { text-align: center; padding: clamp(48px, 8vw, 76px) 0; }
+  .statement-band p { font-family: var(--font-head); font-size: clamp(1.5rem, 3.6vw, 2.4rem); font-weight: 700; max-width: 26ch; margin: 0 auto; line-height: 1.28; }
+  .statement-band p .accent { color: var(--accent); }
 
   .cta-band { text-align: center; }
   .cta-band h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); max-width: 22ch; margin: 0 auto; }
@@ -435,6 +449,12 @@
   </div>
 </section>
 
+<section id="posicionamento" class="trace-line">
+  <div class="wrap statement-band">
+    <p>Você não usa a NetOps360 só para <span class="accent">monitorar</span> sua rede.<br>Você usa para <span class="accent">assumir o controle</span> da operação.</p>
+  </div>
+</section>
+
 <section id="comparativo" class="tinted">
   <div class="wrap">
     <div class="section-head">
@@ -461,6 +481,13 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="statement-band">
+  <div class="wrap">
+    <p class="eyebrow">Posicionamento</p>
+    <p class="claim">Você não usa a NetOps360 só para monitorar sua rede.<strong>Você usa para assumir <span class="accent">o controle</span> da operação.</strong></p>
   </div>
 </section>
 
