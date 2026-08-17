@@ -158,6 +158,22 @@
   .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
   .btn-primary:hover { background: var(--accent-2); border-color: var(--accent-2); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent), 0 8px 24px -6px color-mix(in srgb, var(--accent) 65%, transparent); }
   .btn-ghost:hover { border-color: var(--text-muted); }
+  .btn-primary:disabled { opacity: .6; cursor: default; box-shadow: none; }
+
+  .lead-form { max-width: 480px; margin: 28px auto 0; text-align: left; }
+  .lead-form .row { display: flex; gap: 10px; }
+  .lead-form input, .lead-form textarea {
+    width: 100%; background: var(--surface); border: 1px solid var(--border); color: var(--text);
+    border-radius: 7px; padding: 12px 14px; font-family: var(--font-head); font-size: 0.92rem; margin-bottom: 10px;
+  }
+  .lead-form input::placeholder, .lead-form textarea::placeholder { color: var(--text-muted-2); }
+  .lead-form input:focus, .lead-form textarea:focus { outline: none; border-color: var(--accent); }
+  .lead-form textarea { resize: vertical; min-height: 64px; }
+  .lead-form .lead-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
+  .lead-form .lead-msg { font-size: 0.86rem; font-family: var(--font-head); }
+  .lead-form .lead-msg[data-state="ok"] { color: #34d399; }
+  .lead-form .lead-msg[data-state="err"] { color: #f87171; }
+  @media (max-width: 480px) { .lead-form .row { flex-direction: column; } }
 
 
   /* ---- real product screenshot frame ---- */
@@ -548,10 +564,19 @@
     <p class="eyebrow" style="text-align:center;">próximo passo</p>
     <h2>Quer ver quanto sua operação está perdendo por falta de visibilidade?</h2>
     <p>Uma demonstração de 20 minutos com o painel de verdade, rodando com a lógica da sua rede — não um trial genérico.</p>
-    <div class="hero-ctas">
-      <a class="btn-primary" href="mailto:wellington.wagner@gmail.com?subject=Quero%20conhecer%20o%20NetOps360">Pedir demonstração →</a>
-      <a class="btn-ghost" href="https://instagram.com/netops360" target="_blank" rel="noopener">@netops360 no Instagram</a>
-    </div>
+    <form class="lead-form" id="lead-form">
+      <div class="row">
+        <input type="text" name="nome" placeholder="Seu nome" required maxlength="120">
+        <input type="text" name="empresa" placeholder="Provedor / empresa" maxlength="120">
+      </div>
+      <input type="tel" name="whatsapp" placeholder="WhatsApp com DDD" required maxlength="40">
+      <textarea name="mensagem" placeholder="Conta rapidamente o que está pegando na sua operação (opcional)" maxlength="500"></textarea>
+      <div class="lead-actions">
+        <button class="btn-primary" type="submit">Pedir demonstração →</button>
+        <a class="btn-ghost" href="https://instagram.com/netops360" target="_blank" rel="noopener">@netops360 no Instagram</a>
+      </div>
+      <p class="lead-msg" id="lead-msg" role="status"></p>
+    </form>
   </div>
 </section>
 
@@ -633,6 +658,47 @@
   resize();
   window.addEventListener('resize', resize);
   if (reduce) { step(); } else { requestAnimationFrame(step); }
+})();
+
+(function () {
+  var form = document.getElementById('lead-form');
+  if (!form) return;
+  var msg = document.getElementById('lead-msg');
+  var btn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = {
+      nome: form.nome.value.trim(),
+      empresa: form.empresa.value.trim(),
+      whatsapp: form.whatsapp.value.trim(),
+      mensagem: form.mensagem.value.trim()
+    };
+    btn.disabled = true;
+    msg.textContent = 'Enviando...';
+    msg.removeAttribute('data-state');
+
+    fetch('https://n8n.wfcore.dev.br/webhook/netops360-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(function (res) { return res.json().then(function (body) { return { ok: res.ok, body: body }; }); })
+      .then(function (r) {
+        if (r.ok && r.body && r.body.ok) {
+          form.reset();
+          msg.textContent = 'Recebido! Vamos te chamar no WhatsApp em breve.';
+          msg.setAttribute('data-state', 'ok');
+        } else {
+          throw new Error((r.body && r.body.error) || 'Falha no envio');
+        }
+      })
+      .catch(function () {
+        msg.textContent = 'Não deu pra enviar agora — chama a gente no Instagram @netops360.';
+        msg.setAttribute('data-state', 'err');
+      })
+      .finally(function () { btn.disabled = false; });
+  });
 })();
 </script>
 
