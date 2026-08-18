@@ -161,12 +161,12 @@
   .btn-ghost:hover { border-color: var(--text-muted); }
   .btn-primary:disabled { opacity: .6; cursor: default; box-shadow: none; }
 
-  .lead-form { max-width: 480px; margin: 28px auto 0; text-align: left; }
-  .lead-form .row { display: flex; gap: 10px; }
+  .lead-form { max-width: 400px; margin: 28px auto 0; text-align: left; }
   .lead-form input, .lead-form textarea {
     width: 100%; background: var(--surface); border: 1px solid var(--border); color: var(--text);
     border-radius: 7px; padding: 12px 14px; font-family: var(--font-head); font-size: 0.92rem; margin-bottom: 10px;
   }
+  .lead-form input.lead-form-contato { max-width: 240px; }
   .lead-form input::placeholder, .lead-form textarea::placeholder { color: var(--text-muted-2); }
   .lead-form input:focus, .lead-form textarea:focus { outline: none; border-color: var(--accent); }
   .lead-form textarea { resize: vertical; min-height: 64px; }
@@ -174,7 +174,7 @@
   .lead-form .lead-msg { font-size: 0.86rem; font-family: var(--font-head); }
   .lead-form .lead-msg[data-state="ok"] { color: #34d399; }
   .lead-form .lead-msg[data-state="err"] { color: #f87171; }
-  @media (max-width: 480px) { .lead-form .row { flex-direction: column; } }
+  @media (max-width: 480px) { .lead-form input.lead-form-contato { max-width: 100%; } }
 
 
   /* ---- real product screenshot frame ---- */
@@ -592,11 +592,9 @@
     <h2>Quer ver quanto sua operação está perdendo por falta de visibilidade?</h2>
     <p>Uma demonstração de 20 minutos com o painel de verdade, rodando com a lógica da sua rede — não um trial genérico.</p>
     <form class="lead-form" id="lead-form">
-      <div class="row">
-        <input type="text" name="nome" placeholder="Seu nome" required maxlength="120">
-        <input type="text" name="empresa" placeholder="Provedor / empresa" maxlength="120">
-      </div>
-      <input type="tel" name="whatsapp" placeholder="WhatsApp com DDD" required maxlength="40">
+      <input type="text" name="nome" placeholder="Seu nome" required maxlength="120">
+      <input type="text" name="empresa" placeholder="Provedor / empresa" maxlength="120">
+      <input class="lead-form-contato" type="tel" name="whatsapp" placeholder="WhatsApp com DDD" required maxlength="40">
       <textarea name="mensagem" placeholder="Qual o maior gargalo da sua operação hoje? (opcional)" maxlength="500"></textarea>
       <div class="lead-actions">
         <button class="btn-primary" type="submit">Pedir demonstração →</button>
