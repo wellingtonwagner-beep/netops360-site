@@ -1,0 +1,13 @@
+{
+  "name": "NetOps360",
+  "short_name": "NetOps360",
+  "description": "Plataforma de operação para provedores de internet.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070b",
+  "theme_color": "#05070b",
+  "icons": [
+    { "src": "/images/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/images/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

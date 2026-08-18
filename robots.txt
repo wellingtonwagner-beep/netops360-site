@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://netops360.com.br/sitemap.xml
