@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade — NetOps360</title>
+<meta name="description" content="Política de Privacidade do site institucional do NetOps360: quais dados o formulário de contato coleta, para onde vão e os direitos do titular sob a LGPD.">
+<link rel="canonical" href="https://netops360.com.br/privacidade.html">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #05070b;
+    --surface: #0b0d11;
+    --border: rgba(255,255,255,0.09);
+    --border-soft: rgba(255,255,255,0.05);
+    --text: #f5f7fb;
+    --text-muted: #8493aa;
+    --text-muted-2: #5f6d82;
+    --accent: #ff7a18;
+    --font-head: 'IBM Plex Sans', ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: light;
+      --bg: #f4f6f9;
+      --surface: #ffffff;
+      --border: #dde3ea;
+      --border-soft: #e7ecf1;
+      --text: #10141b;
+      --text-muted: #5b6675;
+      --text-muted-2: #7b8494;
+      --accent: #e8630a;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  a { color: var(--accent); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+  header.topbar { border-bottom: 1px solid var(--border-soft); }
+  header.topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brandmark { font-weight: 800; font-family: var(--font-head); font-size: 1.05rem; letter-spacing: -0.01em; text-decoration: none; color: var(--text); }
+  .brandmark .dot360 { color: var(--accent); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; }
+  .back-link { font-size: 0.85rem; text-decoration: none; }
+  main { padding: clamp(40px, 7vw, 72px) 0; }
+  h1 { font-family: var(--font-head); font-weight: 800; font-size: clamp(1.6rem, 3.4vw, 2.2rem); letter-spacing: -0.015em; margin: 0 0 6px; }
+  .updated { font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted-2); margin-bottom: 36px; }
+  h2 { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; margin-top: 32px; }
+  p, li { color: var(--text-muted); font-size: 0.96rem; }
+  ul { padding-left: 20px; }
+  .note-box { border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; background: var(--surface); font-size: 0.9rem; color: var(--text-muted); }
+  footer { border-top: 1px solid var(--border-soft); padding: 24px 0; }
+  footer .wrap { font-size: 0.82rem; color: var(--text-muted-2); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brandmark" href="index.html">NetOps<span class="dot360">360</span></a>
+    <a class="back-link" href="index.html">← Voltar ao site</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Política de Privacidade</h1>
+  <p class="updated">Última atualização: 22 de agosto de 2026</p>
+
+  <p>Esta política descreve como o site institucional do NetOps360 (produto WFCore — Soluções para Negócios) trata os dados enviados pelo formulário de contato desta página. Ela cobre apenas este site institucional, não a aplicação operacional do NetOps360 usada pelos provedores clientes.</p>
+
+  <h2>Quais dados coletamos</h2>
+  <p>O único ponto de coleta deste site é o formulário de contato (seção "Pedir demonstração"). Quando você o preenche, coletamos:</p>
+  <ul>
+    <li>Nome</li>
+    <li>Empresa / provedor (opcional)</li>
+    <li>WhatsApp com DDD</li>
+    <li>Mensagem (opcional)</li>
+  </ul>
+  <p>O site não usa cookies de rastreamento próprios nem formulário de cadastro de usuário — ele é puramente institucional.</p>
+
+  <h2>Para onde os dados vão</h2>
+  <p>Os dados do formulário são enviados diretamente, via requisição do seu navegador, para a infraestrutura própria da NetOps360/WFCore (endpoint em <code>n8n.wfcore.dev.br</code>). Não é um serviço de terceiro externo — é infraestrutura de automação operada pela própria WFCore, usada para encaminhar o pedido de contato ao time comercial.</p>
+
+  <h2>Finalidade</h2>
+  <p>Os dados são usados exclusivamente para que o time da NetOps360 entre em contato sobre uma demonstração ou dúvida relacionada ao produto. Não compartilhamos esses dados com terceiros nem os usamos para finalidade diferente desta.</p>
+
+  <h2>Retenção</h2>
+  <p>O período formal de retenção ainda não está definido em política escrita — está em finalização junto à revisão jurídica da empresa. Até lá, os dados ficam retidos pelo tempo necessário para o contato comercial ser concluído.</p>
+
+  <h2>Direitos do titular (LGPD)</h2>
+  <p>Sob a Lei Geral de Proteção de Dados, você tem direito a solicitar acesso, correção ou eliminação dos dados que enviou por este formulário, entre outros direitos previstos na lei. Para exercer esse direito, entre em contato pelo e-mail abaixo — ainda não temos um processo formal específico de atendimento a esse tipo de solicitação nem DPO nomeado publicamente; isso também está em estruturação.</p>
+
+  <h2>Dados da empresa</h2>
+  <div class="note-box">Em finalização — informações jurídicas completas (CNPJ, razão social, endereço) serão publicadas em breve.</div>
+
+  <h2>Contato</h2>
+  <p>Dúvidas sobre esta política podem ser enviadas para <a href="mailto:wellington.wagner@gmail.com">wellington.wagner@gmail.com</a>.</p>
+</main>
+
+<footer>
+  <div class="wrap">NetOps360 — WFCore Soluções para Negócios</div>
+</footer>
+
+</body>
+</html>
